@@ -1,0 +1,24 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: cadetblue;
+
+    & .logo {
+        color: #fff;
+    }
+
+    & .menu {
+        display: flex;
+        list-style: none;
+
+        & li {
+            margin: 0 2rem;
+
+            & a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
