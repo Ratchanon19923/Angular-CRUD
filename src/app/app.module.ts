@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from './material/material.module';
+import { AddStoreComponent } from './pages/add-store/add-store.component';
+import { ShowListStoreComponent } from './pages/show-list-store/show-list-store.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddStoreComponent,
+    ShowListStoreComponent,
     NavbarComponent,
   ],
   imports: [
