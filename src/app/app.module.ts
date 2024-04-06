@@ -7,13 +7,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from './material/material.module';
-import { FunctiontestComponent } from './functiontest/functiontest.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FunctiontestComponent
   ],
   imports: [
     BrowserModule,
