@@ -6,22 +6,30 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MaterialModule } from './material/material.module';
-import { AddStoreComponent } from './pages/add-store/add-store.component';
-import { ShowListStoreComponent } from './pages/show-list-store/show-list-store.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CreateStoreComponent } from './pages/create-store/create-store.component';
+import { EditStoreComponent } from './pages/edit-store/edit-store.component';
+import { ListStoreComponent } from './pages/list-store/list-store.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddStoreComponent,
-    ShowListStoreComponent,
     NavbarComponent,
+    CreateStoreComponent,
+    EditStoreComponent,
+    ListStoreComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatSlideToggleModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
