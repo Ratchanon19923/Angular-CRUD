@@ -5,7 +5,10 @@ nav {
     background-color: cadetblue;
 
     & .logo {
-        color: #fff;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 1rem;
     }
 
     & .menu {
@@ -21,12 +24,4 @@ nav {
             }
         }
     }
-}
-
-.test {
-    color: red;
-}
-
-span {
-    color: yellow;
 }
