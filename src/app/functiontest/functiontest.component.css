@@ -1,0 +1,17 @@
+nav {
+    border-width: 1px;
+    border-color: red;
+    
+
+    & .logo {
+        color: aliceblue;
+    }
+
+    & .buttonStyle {
+        border-width: 1px;
+        border-color: black;
+        border-radius: 24px;
+        height: 100px;
+        width: 150px;
+    }
+}

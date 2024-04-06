@@ -22,3 +22,11 @@ nav {
         }
     }
 }
+
+.test {
+    color: red;
+}
+
+span {
+    color: yellow;
+}
