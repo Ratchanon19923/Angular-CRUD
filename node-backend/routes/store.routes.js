@@ -1,48 +1,48 @@
 const express = require('express');
-const app = express();
-
 const storeRouter = express.Router();
-let Store = require('../model/store');
 
-// Create Store
-storeRouter.route('/create-store').post((req, res, next) => {
-    Store.create(req.body, (err, data) => {
-        if (err) {
-            return next(err);
-        } else {
-            res.json(data);
-        }
 
-    })
-})
+let StoreDB = require('../model/store');
+
 
 // Get all Store
-storeRouter.route('/').get((req, res) => {
-    Store.find((err, data) => {
-        if (err) {
-            return next(err);
-        } else {
-            res.json(data);
-        }
-
-    })
-})
+storeRouter.route('/get-store').get(async (req, res, next) => {
+    try {
+        const data = await StoreDB.find();
+        res.json(data);
+    } catch (err) {
+        next(err);
+    }
+});
 
 // Get StoreById
-storeRouter.route('/get-store/:id').get((req, res) => {
-    Store.findById(req.params.id, (err, data) => {
-        if (err) {
-            return next(err);
-        } else {
-            res.json(data);
+storeRouter.route('/get-store/:id').get(async (req, res, next) => {
+    try {
+        const data = await StoreDB.findById(req.params.id);
+        if (!data) {
+            return res.status(404).json({ message: 'Store not found' });
         }
+        res.json(data);
+    } catch (err) {
+        next(err);
+    }
+});
 
-    })
-})
 
-// Update StoreById
+// Post create Store
+storeRouter.route('/create-store').post(async (req, res, next) => {
+    try {
+        const data = await StoreDB.create(req.body);
+        res.json(data);
+    } catch (err) {
+        next(err);
+    }
+});
+
+
+// Put  update StoreById
 storeRouter.route('/update-store/:id').put((req, res, next) => {
-    Store.findByIdAndUpdate(req.params.id, {
+    StoreDB.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, (err, data) => {
         if (err) {
@@ -57,17 +57,16 @@ storeRouter.route('/update-store/:id').put((req, res, next) => {
 })
 
 //Delete StoreById
-storeRouter.route('/delete-store/:id').delete((req, res) => {
-    Store.findByIdAndRemove(req.params.id, (err, data) => {
-        if (err) {
-            return next(err);
-        } else {
-            res.status(200).json({
-                msg: data
-            });
+storeRouter.route('/delete-store/:id').delete(async (req, res, next) => {
+    try {
+        const data = await StoreDB.findByIdAndRemove(req.params.id);
+        if (!data) {
+            return res.status(404).json({ message: 'Store not found' });
         }
-
-    })
-})
+        res.status(200).json({ msg: 'Store deleted successfully' });
+    } catch (err) {
+        next(err);
+    }
+});
 
 module.exports = storeRouter;
