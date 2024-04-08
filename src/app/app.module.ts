@@ -13,7 +13,6 @@ import { ListStoreComponent } from './pages/list-store/list-store.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CrudComponent } from './service/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { CrudComponent } from './service/crud/crud.component';
     NavbarComponent,
     CreateStoreComponent,
     EditStoreComponent,
-    ListStoreComponent,
-    CrudComponent,
+    ListStoreComponent
   ],
   imports: [
     BrowserModule,
